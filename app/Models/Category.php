@@ -9,9 +9,24 @@ class Category extends Model
 {
     use HasFactory;
 
-    public static $category;
+    private static $category,$image,$imageName,$directory,$imageUrl;
+
+    // private static function getImageUrl($request){
+    //     self::$image = $request->file('image');
+    //     self::$imageName = self::$image->getClientOriginalName();
+    //     self::$directory = "upload/category-images/";
+    //     self::$image->move(self::$directory,self::$imageName);
+    //     self::$imageUrl = self::$directory.self::$imageName;
+    //     return self::$imageUrl;
+    // }
 
     public static function saveCategory($request){
+        // if($request->file('image')){
+        //     self::$imageUrl = self::getImageUrl($request);
+        // }else{
+        //     self::$imageUrl = ' ';
+        // }
+        // self::$imageUrl = $request->file('image') ? self::getImageUrl($request) : ' ';
         self::$category = new Category();
         self::$category->name = $request->name;
         self::$category->description = $request->description;
@@ -31,6 +46,7 @@ class Category extends Model
         }
         self::$category->save();
     }
+
 
     public static function deleteCategory($id)
     {

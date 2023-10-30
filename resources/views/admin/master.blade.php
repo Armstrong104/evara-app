@@ -29,11 +29,9 @@
             <!-- app-Header -->
             @include('admin.includes.header')
             <!-- /app-Header -->
-
             <!--APP-SIDEBAR-->
-            @include('admin.includes.sidebar')
+            @include('admin.includes.sidebar-menu')
             <!--/APP-SIDEBAR-->
-
             <!--app-content open-->
             <div class="app-content main-content mt-0">
                 <div class="side-app">
@@ -232,16 +230,16 @@
                                     data-bs-toggle="tab" href="#task-files">
                                     Files
                                 </a>
-                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1"
-                                    data-bs-toggle="tab" href="#task-subtask">
+                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1" data-bs-toggle="tab"
+                                    href="#task-subtask">
                                     Sub Task
                                 </a>
-                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1"
-                                    data-bs-toggle="tab" href="#task-tracktime">
+                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1" data-bs-toggle="tab"
+                                    href="#task-tracktime">
                                     Track Time
                                 </a>
-                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1"
-                                    data-bs-toggle="tab" href="#task-comments">
+                                <a class="nav-link border border-bottom-0 py-1 br-5 mx-1 mx-md-1" data-bs-toggle="tab"
+                                    href="#task-comments">
                                     Comments
                                 </a>
                             </nav>
@@ -306,8 +304,7 @@
                                                         <div class="recent-files">
                                                             <svg class="file-manager-icon w-icn me-2"
                                                                 xmlns="http://www.w3.org/2000/svg"
-                                                                enable-background="new 0 0 24 24"
-                                                                viewBox="0 0 24 24">
+                                                                enable-background="new 0 0 24 24" viewBox="0 0 24 24">
                                                                 <path fill="#f2c8db"
                                                                     d="M14,18H5c-1.65611-0.00181-2.99819-1.34389-3-3V9c0.00181-1.65611,1.34389-2.99819,3-3h9c1.65611,0.00181,2.99819,1.34389,3,3v6C16.99819,16.65611,15.65611,17.99819,14,18z" />
                                                                 <path fill="#eaa4c4"
@@ -333,8 +330,7 @@
                                                         <div class="recent-files">
                                                             <svg class="file-manager-icon w-icn me-2"
                                                                 xmlns="http://www.w3.org/2000/svg"
-                                                                enable-background="new 0 0 24 24"
-                                                                viewBox="0 0 24 24">
+                                                                enable-background="new 0 0 24 24" viewBox="0 0 24 24">
                                                                 <path fill="#c8e4a6"
                                                                     d="M13.5,9C12.67157,9,12,8.32843,12,7.5S12.67157,6,13.5,6S15,6.67157,15,7.5C14.9991,8.32805,14.32805,8.9991,13.5,9z" />
                                                                 <path fill="#add679"
@@ -383,8 +379,8 @@
                                             <a href="javascript:void(0)" role="button"
                                                 class="text-primary text-center ms-2" id="completedAll">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-inner-icn text-primary"
-                                                    enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                                                    class="w-inner-icn text-primary" enable-background="new 0 0 24 24"
+                                                    viewBox="0 0 24 24">
                                                     <path
                                                         d="M15.8085327,8.6464844l-5.6464233,5.6464844l-2.4707031-2.4697266c-0.0023804-0.0023804-0.0047607-0.0047607-0.0072021-0.0071411c-0.1972046-0.1932373-0.5137329-0.1900635-0.7069702,0.0071411c-0.1932983,0.1972656-0.1900635,0.5137939,0.0071411,0.7070312l2.8242188,2.8232422C9.9022217,15.4474487,10.02948,15.5001831,10.1621094,15.5c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l6-6c0.0023804-0.0023804,0.0047607-0.0046997,0.0071411-0.0071411c0.1932373-0.1972046,0.1900635-0.5137329-0.0071411-0.7069702C16.3183594,8.446106,16.0018311,8.4493408,15.8085327,8.6464844z M12,2C6.4771729,2,2,6.4771729,2,12s4.4771729,10,10,10c5.5201416-0.0064697,9.9935303-4.4798584,10-10C22,6.4771729,17.5228271,2,12,2z M12,21c-4.9705811,0-9-4.0294189-9-9s4.0294189-9,9-9c4.9683228,0.0054321,8.9945679,4.0316772,9,9C21,16.9705811,16.9705811,21,12,21z" />
                                                 </svg>
@@ -644,21 +640,16 @@
             </div>
         </div><!--TASK MODAL ENDS-->
 
-
         <!-- FOOTER -->
         @include('admin.includes.footer')
         <!-- FOOTER CLOSED -->
-
     </div>
     <!-- page -->
-
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
     @include('admin.includes.script')
 
 </body>
-
-
 
 </html>

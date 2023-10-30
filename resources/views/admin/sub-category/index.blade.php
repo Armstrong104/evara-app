@@ -1,17 +1,18 @@
 @extends('admin.master')
 
-@section('title', 'Manage Category')
+@section('title', 'Manage Sub Category')
 
 @section('body')
+
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Category Module</h1>
+            <h1 class="page-title">Sub Category Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Manage Category</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Sub Category</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Sub Category</li>
             </ol>
         </div>
     </div>
@@ -21,7 +22,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-bottom">
-                        <h3 class="card-title">Manage Category Table</h3>
+                        <h3 class="card-title">Manage Sub Category Table</h3>
                     </div>
                     <div class="card-body">
                         @include('admin.notify')
@@ -30,7 +31,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Sl No</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Category Name</th>
+                                        <th scope="col">Sub Category Name</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Status</th>
@@ -38,21 +40,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($sub_categories as $sub_category)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
-                                            <td><img src="{{ asset($category->image) }}" alt="" height="70"
+                                            <td>{{ $sub_category->category?->name }}</td>
+                                            <td>{{ $sub_category->name }}</td>
+                                            <td>{{ $sub_category->description }}</td>
+                                            <td><img src="{{ asset($sub_category->image) }}" alt="" height="70"
                                                     width="70">
                                             </td>
-                                            <td>{{ $category->status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                            <td>{{ $sub_category->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{ route('category.edit', $category->id) }}"
+                                                    <a href="{{ route('sub-category.edit', $sub_category->id) }}"
                                                         class="btn btn-sm btn-outline-success"><i
                                                             class="fa fa-edit"></i></a>
-                                                    <form action="{{ route('category.destroy', $category->id) }}"
+                                                    <form action="{{ route('sub-category.destroy', $sub_category->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')

@@ -11,7 +11,7 @@
 		<meta name="keywords" content="">
 
         <!-- TITLE -->
-		<title>Noa - Laravel Bootstrap 5 Admin & Dashboard Template</title>
+		<title>Login</title>
 
         <!-- FAVICON -->
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('/')}}admin/assets/images/brand/favicon.ico" />
@@ -83,7 +83,7 @@
 										</button>
 									</div>
 									<div class="text-center pt-3">
-										<p class="text-dark mb-0">Not a member?<a href="register.html" class="text-primary ms-1">Create an Account</a></p>
+										<p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
 									</div>
 								</form>
 							</div>

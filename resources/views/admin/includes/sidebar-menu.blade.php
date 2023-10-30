@@ -59,8 +59,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Tables</a></li>
-                        <li><a href="tables.html" class="slide-item">Add Sub Category</a></li>
-                        <li><a href="tables.html" class="slide-item">Manage Sub Category</a></li>
+                        <li><a href="{{route('sub-category.create')}}" class="slide-item">Add Sub Category</a></li>
+                        <li><a href="{{route('sub-category.index')}}" class="slide-item">Manage Sub Category</a></li>
 
                     </ul>
                 </li>

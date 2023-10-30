@@ -7,13 +7,9 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category.index',compact('categories'));
+        return view('admin.category.index',['categories' => Category::all()]);
     }
 
     /**
@@ -30,7 +26,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required | unique:categories,name',
             'image' => 'image'
         ]);
 
@@ -49,27 +45,29 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        $category = Category::find($id);
-        return view('admin.category.edit',compact('category'));
+        return view('admin.category.edit',['category' => $category]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        Category::updateCategory($request,$id);
+        $request->validate([
+            'image' => 'image'
+        ]);
+        Category::updateCategory($request,$category->id);
         return to_route('category.index')->with('msg','Category Updated Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-         Category::deleteCategory($id);
+         Category::deleteCategory($category->id);
         return back()->with('msg','Category Deleted Successfully!');
     }
 }

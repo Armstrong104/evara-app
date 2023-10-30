@@ -191,7 +191,8 @@
                                         <li><a href="#"><img src="{{asset('/')}}website/assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
                                     </ul>
                                 </li>
-                                <li><i class="fi-rs-user"></i><a href="page-login-register.html">Log In / Sign Up</a></li>
+                                <li><i class="fi-rs-user"></i><a href="{{route('login')}}">Log In</a></li>
+                                <li><img width="18" class="me-2" height="18" src="https://img.icons8.com/fluency-systems-regular/48/signing-a-document--v1.png" alt="signing-a-document--v1"/><a href="{{route('register')}}">Register</a></li>
                             </ul>
                         </div>
                     </div>
@@ -805,7 +806,8 @@
                         <a  href="page-contact.html"> Our location </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="page-login-register.html">Log In / Sign Up </a>
+                        <a href="{{route('login')}}">Log In</a>
+                        <a href="{{route('register')}}">Register</a>
                     </div>
                     <div class="single-mobile-header-info">
                         <a href="#">(+01) - 2345 - 6789 </a>
