@@ -28,23 +28,31 @@ class Category extends Model
         // }
         // self::$imageUrl = $request->file('image') ? self::getImageUrl($request) : ' ';
         self::$category = new Category();
-        self::$category->name = $request->name;
-        self::$category->description = $request->description;
         self::$category->image = imageUpload($request->image,'category-images');
-        self::$category->save();
+        self::saveBasicInfo($request,self::$category);
+
     }
 
     public static function updateCategory($request,$id){
+
         self::$category = Category::find($id);
-        self::$category->name = $request->name;
-        self::$category->description = $request->description;
         if($request->image){
             if(file_exists(self::$category->image)){
                 unlink(self::$category->image);
             }
             self::$category->image = imageUpload($request->image,'category-images');
         }
-        self::$category->save();
+
+        self::saveBasicInfo($request,self::$category);
+
+    }
+
+    private static function saveBasicInfo($request,$category){
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->status = $request->status;
+        $category->save();
     }
 
 

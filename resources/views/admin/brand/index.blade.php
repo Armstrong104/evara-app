@@ -1,17 +1,17 @@
 @extends('admin.master')
 
-@section('title', 'Manage Category')
+@section('title', 'Manage Brand')
 
 @section('body')
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Category Module</h1>
+            <h1 class="page-title">Brand Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Manage Category</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Brand</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Brand</li>
             </ol>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-bottom">
-                        <h3 class="card-title">Manage Category Table</h3>
+                        <h3 class="card-title">Manage Brand Table</h3>
                     </div>
                     <div class="card-body">
                         @include('admin.notify')
@@ -38,21 +38,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($brands as $brand)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
-                                            <td><img src="{{ asset($category->image) }}" alt="" height="70"
+                                            <td>{{ $brand->name }}</td>
+                                            <td>{{ $brand->description }}</td>
+                                            <td><img src="{{ asset($brand->image) }}" alt="" height="70"
                                                     width="70">
                                             </td>
-                                            <td>{{ $category->status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                            <td>{{ $brand->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{ route('category.edit', $category->id) }}"
+                                                    <a href="{{ route('brand.edit', $brand->id) }}"
                                                         class="btn btn-sm btn-outline-success"><i
                                                             class="fa fa-edit"></i></a>
-                                                    <form action="{{ route('category.destroy', $category->id) }}"
+                                                    <form action="{{ route('brand.destroy', $brand->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')

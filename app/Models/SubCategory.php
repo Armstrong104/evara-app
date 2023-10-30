@@ -15,27 +15,28 @@ class SubCategory extends Model
 
     public static function saveSubCategory($request){
         self::$subCategory = new SubCategory();
-        self::$subCategory->category_id = $request->category_id;
-        self::$subCategory->name = $request->name;
-        self::$subCategory->description = $request->description;
-        self::$subCategory->status = $request->status;
         self::$subCategory->image = imageUpload($request->image,'subCategory-images');
-        self::$subCategory->save();
+        self::saveBasicInfo($request,self::$subCategory);
     }
 
     public static function updateSubCategory($request,$id){
         self::$subCategory = SubCategory::find($id);
-        self::$subCategory->category_id = $request->category_id;
-        self::$subCategory->name = $request->name;
-        self::$subCategory->description = $request->description;
-        self::$subCategory->status = $request->status;
+
         if($request->image){
             if(file_exists(self::$subCategory->image)){
                 unlink(self::$subCategory->image);
             }
             self::$subCategory->image = imageUpload($request->image,'subCategory-images');
         }
-        self::$subCategory->save();
+        self::saveBasicInfo($request,self::$subCategory);
+    }
+
+    private static function saveBasicInfo($request,$subCategory){
+        $subCategory->category_id = $request->category_id;
+        $subCategory->name = $request->name;
+        $subCategory->description = $request->description;
+        $subCategory->status = $request->status;
+        $subCategory->save();
     }
 
 

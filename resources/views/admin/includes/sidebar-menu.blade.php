@@ -75,8 +75,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Charts</a></li>
-                        <li><a href="chart-echart.html" class="slide-item"> Add Brand</a></li>
-                        <li><a href="chart-echart.html" class="slide-item"> Manage Brand</a></li>
+                        <li><a href="{{route('brand.create')}}" class="slide-item"> Add Brand</a></li>
+                        <li><a href="{{route('brand.index')}}" class="slide-item"> Manage Brand</a></li>
 
                     </ul>
                 </li>

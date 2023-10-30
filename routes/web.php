@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaraController;
@@ -20,4 +21,5 @@ Route::middleware([
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('category',CategoryController::class);
     Route::resource('sub-category',SubCategoryController::class);
+    Route::resource('brand',BrandController::class);
 });
