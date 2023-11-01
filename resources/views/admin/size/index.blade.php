@@ -1,17 +1,17 @@
 @extends('admin.master')
 
-@section('title', 'Manage Category')
+@section('title', 'Manage Size')
 
 @section('body')
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Category Module</h1>
+            <h1 class="page-title">Size Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Manage Category</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Size</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Size</li>
             </ol>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-bottom">
-                        <h3 class="card-title">Manage Category Table</h3>
+                        <h3 class="card-title">Manage Size Table</h3>
                     </div>
                     <div class="card-body">
                         @include('admin.notify')
@@ -31,29 +31,26 @@
                                     <tr class="text-center">
                                         <th scope="col">Sl No</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Code</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Image</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($sizes as $size)
                                         <tr class="text-center">
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
-                                            <td><img src="{{ asset($category->image) }}" alt="" height="70"
-                                                    width="70">
-                                            </td>
-                                            <td>{{ $category->status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                            <td>{{ $size->name }}</td>
+                                            <td>{{ $size->code }}</td>
+                                            <td>{{ $size->description }}</td>
+                                            <td>{{ $size->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                             <td>
                                                 <div class="d-flex gap-2 justify-content-center">
-                                                    <a href="{{ route('category.edit', $category->id) }}"
+                                                    <a href="{{ route('size.edit', $size->id) }}"
                                                         class="btn btn-sm btn-outline-success"><i
                                                             class="fa fa-edit"></i></a>
-                                                    <form action="{{ route('category.destroy', $category->id) }}"
-                                                        method="POST">
+                                                    <form action="{{ route('size.destroy', $size->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-sm btn-outline-danger"

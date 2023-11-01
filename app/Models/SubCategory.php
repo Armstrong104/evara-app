@@ -10,44 +10,44 @@ class SubCategory extends Model
     use HasFactory;
 
 
-    private static $subCategory;
+    private static $subCategory,$imageUrl;
 
 
-    public static function saveSubCategory($request){
+    public static function newSubCategory($request){
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'subCategory-images') : ' ';
         self::$subCategory = new SubCategory();
-        self::$subCategory->image = imageUpload($request->image,'subCategory-images');
-        self::saveBasicInfo($request,self::$subCategory);
+        self::saveBasicInfo($request,self::$subCategory,self::$imageUrl);
     }
 
-    public static function updateSubCategory($request,$id){
-        self::$subCategory = SubCategory::find($id);
-
-        if($request->image){
-            if(file_exists(self::$subCategory->image)){
-                unlink(self::$subCategory->image);
+    public static function updateSubCategory($request,$subCategory){
+        if($request->file('image')){
+            if(file_exists($subCategory->image)){
+                unlink($subCategory->image);
             }
-            self::$subCategory->image = imageUpload($request->image,'subCategory-images');
+            self::$imageUrl = imageUpload($request->image,'subCategory-images');
+        }else{
+            self::$imageUrl = $subCategory->image;
         }
-        self::saveBasicInfo($request,self::$subCategory);
+        self::saveBasicInfo($request,$subCategory,self::$imageUrl);
     }
 
-    private static function saveBasicInfo($request,$subCategory){
+    private static function saveBasicInfo($request,$subCategory,$imageUrl){
         $subCategory->category_id = $request->category_id;
         $subCategory->name = $request->name;
         $subCategory->description = $request->description;
+        $subCategory->image = $imageUrl;
         $subCategory->status = $request->status;
         $subCategory->save();
     }
 
 
 
-    public static function deleteSubCategory($id)
+    public static function deleteSubCategory($subCategory)
     {
-        self::$subCategory = SubCategory::find($id);
-        if(file_exists(self::$subCategory->image)){
-            unlink(self::$subCategory->image);
+        if(file_exists($subCategory->image)){
+            unlink($subCategory->image);
         }
-        self::$subCategory->delete();
+        $subCategory->delete();
     }
 
     public function category(){

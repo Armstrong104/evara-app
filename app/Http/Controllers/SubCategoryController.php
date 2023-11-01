@@ -37,7 +37,7 @@ class SubCategoryController extends Controller
             'name' => 'required',
             'image' => 'image'
         ]);
-        SubCategory::saveSubCategory($request);
+        SubCategory::newSubCategory($request);
         return back()->with('msg','Sub Category Added Successfully!');
     }
 
@@ -67,7 +67,7 @@ class SubCategoryController extends Controller
             'image' => 'image'
         ]);
 
-        SubCategory::updateSubCategory($request,$subCategory->id);
+        SubCategory::updateSubCategory($request,$subCategory);
         return to_route('sub-category.index')->with('msg','Sub Category Updated Successfully!');
     }
 
@@ -76,7 +76,7 @@ class SubCategoryController extends Controller
      */
     public function destroy(SubCategory $subCategory)
     {
-        SubCategory::deleteSubCategory($subCategory->id);
+        SubCategory::deleteSubCategory($subCategory);
         return back()->with('msg','Sub Category Deleted Successfully!');
     }
 }

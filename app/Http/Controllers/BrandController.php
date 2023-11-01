@@ -33,7 +33,7 @@ class BrandController extends Controller
             'image' => 'image'
         ]);
 
-        Brand::saveBrand($request);
+        Brand::newBrand($request);
         return back()->with('msg','Brand Added Successfully!');
     }
 
@@ -61,7 +61,7 @@ class BrandController extends Controller
         $request->validate([
             'image' => 'image'
         ]);
-        Brand::updateBrand($request,$brand->id);
+        Brand::updateBrand($request,$brand);
         return to_route('brand.index')->with('msg','Brand Updated Successfully!');
     }
 
@@ -70,7 +70,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        Brand::deleteBrand($brand->id);
+        Brand::deleteBrand($brand);
         return back()->with('msg','Brand Deleted Successfully!');
     }
 }

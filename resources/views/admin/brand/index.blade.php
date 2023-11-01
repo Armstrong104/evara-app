@@ -39,8 +39,8 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($brands as $brand)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
+                                        <tr class="text-center">
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $brand->name }}</td>
                                             <td>{{ $brand->description }}</td>
                                             <td><img src="{{ asset($brand->image) }}" alt="" height="70"
@@ -48,7 +48,7 @@
                                             </td>
                                             <td>{{ $brand->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                             <td>
-                                                <div class="d-flex gap-2">
+                                                <div class="d-flex gap-2 justify-content-center">
                                                     <a href="{{ route('brand.edit', $brand->id) }}"
                                                         class="btn btn-sm btn-outline-success"><i
                                                             class="fa fa-edit"></i></a>

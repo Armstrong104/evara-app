@@ -30,13 +30,13 @@
 <script src="{{ asset('/') }}admin/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
 <script src="{{ asset('/') }}admin/assets/plugins/datatable/dataTables.responsive.min.js"></script>
 
-<!-- INDEX JS -->
-<script src="{{ asset('/') }}admin/assets/js/index1.js"></script>
-<script src="{{ asset('/') }}admin/assets/js/index.js"></script>
 
 <!-- Reply JS-->
 <script src="{{ asset('/') }}admin/assets/js/reply.js"></script>
 
+<!-- INDEX JS -->
+<script src="{{ asset('/') }}admin/assets/js/index1.js"></script>
+<script src="{{ asset('/') }}admin/assets/js/index.js"></script>
 
 <!-- COLOR THEME JS -->
 <script src="{{ asset('/') }}admin/assets/js/themeColors.js"></script>

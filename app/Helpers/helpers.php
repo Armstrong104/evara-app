@@ -3,7 +3,7 @@
 function imageUpload($image, $path)
 {
     $imgName = $path . time() . rand() . '.' . $image->extension();
-    $directory = $path . '/';
+    $directory =  'upload/'.$path . '/' ;
     $image->move($directory, $imgName);
     return $directory . $imgName;
 }

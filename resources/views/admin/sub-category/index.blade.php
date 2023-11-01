@@ -29,7 +29,7 @@
                         <div class="table-responsive">
                             <table class="table table-bordered text-nowrap border-bottom">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th scope="col">Sl No</th>
                                         <th scope="col">Category Name</th>
                                         <th scope="col">Sub Category Name</th>
@@ -41,8 +41,8 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($sub_categories as $sub_category)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
+                                        <tr class="text-center">
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $sub_category->category?->name }}</td>
                                             <td>{{ $sub_category->name }}</td>
                                             <td>{{ $sub_category->description }}</td>
@@ -51,7 +51,7 @@
                                             </td>
                                             <td>{{ $sub_category->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                             <td>
-                                                <div class="d-flex gap-2">
+                                                <div class="d-flex gap-2 justify-content-center">
                                                     <a href="{{ route('sub-category.edit', $sub_category->id) }}"
                                                         class="btn btn-sm btn-outline-success"><i
                                                             class="fa fa-edit"></i></a>

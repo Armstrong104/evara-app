@@ -9,39 +9,40 @@ class Brand extends Model
 {
     use HasFactory;
 
-    private static $brand;
+    private static $brand,$imageUrl;
 
-    public static function saveBrand($request){
+    public static function newBrand($request){
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'brand-images') : ' ';
         self::$brand = new Brand();
-        self::$brand->image = imageUpload($request->image,'brand-images');
-        self::saveBasicInfo($request,self::$brand);
+        self::saveBasicInfo($request,self::$brand,self::$imageUrl);
     }
 
 
-    public static function updateBrand($request,$id){
-        self::$brand = Brand::find($id);
-        if($request->image){
-            if(file_exists(self::$brand->image)){
-                unlink(self::$brand->image);
+    public static function updateBrand($request,$brand){
+        if($request->file('image')){
+            if(file_exists($brand->image)){
+                unlink($brand->image);
             }
-            self::$brand->image = imageUpload($request->image,'brand-images');
+            self::$imageUrl = imageUpload($request->image,'brand-images');
+        }else{
+            self::$imageUrl = $brand->image;
         }
-        self::saveBasicInfo($request,self::$brand);
+        self::saveBasicInfo($request,$brand,self::$imageUrl);
     }
 
-    private static function saveBasicInfo($request,$brand){
+    private static function saveBasicInfo($request,$brand,$imageUrl){
         $brand->name = $request->name;
         $brand->description = $request->description;
+        $brand->image = $imageUrl;
         $brand->status = $request->status;
         $brand->save();
     }
 
-    public static function deleteBrand($id){
-        self::$brand = Brand::find($id);
-        if(file_exists(self::$brand->image)){
-            unlink(self::$brand->image);
+    public static function deleteBrand($brand){
+        if(file_exists($brand->image)){
+            unlink($brand->image);
         }
-        self::$brand->delete();
+        $brand->delete();
     }
 
 

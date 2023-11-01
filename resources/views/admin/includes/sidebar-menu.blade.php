@@ -91,8 +91,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Icons</a></li>
-                        <li><a href="icons.html" class="slide-item">Add Unit</a></li>
-                        <li><a href="icons.html" class="slide-item">Manage Unit</a></li>
+                        <li><a href="{{route('unit.create')}}" class="slide-item">Add Unit</a></li>
+                        <li><a href="{{route('unit.index')}}" class="slide-item">Manage Unit</a></li>
 
                     </ul>
                 </li>
@@ -107,8 +107,8 @@
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Maps</a></li>
-                        <li><a href="maps1.html" class="slide-item">Add Color</a></li>
-                        <li><a href="maps2.html" class="slide-item">Manage Color</a></li>
+                        <li><a href="{{route('color.create')}}" class="slide-item">Add Color</a></li>
+                        <li><a href="{{route('color.index')}}" class="slide-item">Manage Color</a></li>
                     </ul>
                 </li>
 
@@ -123,8 +123,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Apps</a></li>
-                        <li><a href="calendar2.html" class="slide-item">Add Size</a></li>
-                        <li><a href="chat.html" class="slide-item">Manage Size</a></li>
+                        <li><a href="{{route('size.create')}}" class="slide-item">Add Size</a></li>
+                        <li><a href="{{route('size.index')}}" class="slide-item">Manage Size</a></li>
                     </ul>
                 </li>
 

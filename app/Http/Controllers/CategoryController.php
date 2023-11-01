@@ -30,7 +30,7 @@ class CategoryController extends Controller
             'image' => 'image'
         ]);
 
-        Category::saveCategory($request);
+        Category::newCategory($request);
         return back()->with('msg','Category Added Successfully!');
     }
 
@@ -58,7 +58,7 @@ class CategoryController extends Controller
         $request->validate([
             'image' => 'image'
         ]);
-        Category::updateCategory($request,$category->id);
+        Category::updateCategory($request,$category);
         return to_route('category.index')->with('msg','Category Updated Successfully!');
     }
 
@@ -67,7 +67,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-         Category::deleteCategory($category->id);
+         Category::deleteCategory($category);
         return back()->with('msg','Category Deleted Successfully!');
     }
 }

@@ -20,48 +20,42 @@ class Category extends Model
     //     return self::$imageUrl;
     // }
 
-    public static function saveCategory($request){
-        // if($request->file('image')){
-        //     self::$imageUrl = self::getImageUrl($request);
-        // }else{
-        //     self::$imageUrl = ' ';
-        // }
-        // self::$imageUrl = $request->file('image') ? self::getImageUrl($request) : ' ';
+    public static function newCategory($request){
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'category-images') : ' ';
         self::$category = new Category();
-        self::$category->image = imageUpload($request->image,'category-images');
-        self::saveBasicInfo($request,self::$category);
+        self::saveBasicInfo($request,self::$category,self::$imageUrl);
 
     }
 
-    public static function updateCategory($request,$id){
-
-        self::$category = Category::find($id);
-        if($request->image){
-            if(file_exists(self::$category->image)){
-                unlink(self::$category->image);
+    public static function updateCategory($request,$category){
+        if($request->file('image')){
+            if(file_exists($category->image)){
+                unlink($category->image);
             }
-            self::$category->image = imageUpload($request->image,'category-images');
+            self::$imageUrl = imageUpload($request->image,'category-images');
+        }else{
+            self::$imageUrl = $category->image;
         }
 
-        self::saveBasicInfo($request,self::$category);
+        self::saveBasicInfo($request,$category,self::$imageUrl);
 
     }
 
-    private static function saveBasicInfo($request,$category){
+    private static function saveBasicInfo($request,$category,$imageUrl){
 
         $category->name = $request->name;
         $category->description = $request->description;
+        $category->image = $imageUrl;
         $category->status = $request->status;
         $category->save();
     }
 
 
-    public static function deleteCategory($id)
+    public static function deleteCategory($category)
     {
-        self::$category = Category::find($id);
-        if(file_exists(self::$category->image)){
-            unlink(self::$category->image);
+        if(file_exists($category->image)){
+            unlink($category->image);
         }
-        self::$category->delete();
+        $category->delete();
     }
 }
