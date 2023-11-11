@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaraController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
@@ -28,4 +29,6 @@ Route::middleware([
     Route::resource('unit',UnitController::class);
     Route::resource('color',ColorController::class);
     Route::resource('size',SizeController::class);
+    Route::resource('product',ProductController::class);
+    Route::get('/get-sub-category-by-category',[ProductController::class,'getSubCategoryByCategory'])->name('get-sub-category-by-category');
 });

@@ -26,7 +26,7 @@
                     <div class="card-body">
                         @include('admin.notify')
                         <div class="table-responsive">
-                            <table class="table table-bordered text-nowrap border-bottom">
+                            <table class="table table-bordered text-nowrap border-bottom" id="example3">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">Sl No</th>

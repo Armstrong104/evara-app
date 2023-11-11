@@ -1,18 +1,18 @@
 @extends('admin.master')
 
-@section('title', 'Manage Sub Category')
+@section('title', 'Manage Product')
 
 @section('body')
 
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Sub Category Module</h1>
+            <h1 class="page-title">Product Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Sub Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Manage Sub Category</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Product</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Product</li>
             </ol>
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <h3 class="card-title">Manage Sub Category Table</h3>
+                    <h3 class="card-title">Manage Product Table</h3>
                 </div>
                 <div class="card-body">
                     @include('admin.notify')
@@ -30,31 +30,34 @@
                             <thead>
                                 <tr class="text-center">
                                     <th scope="col">Sl No</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Sub Category Name</th>
-                                    <th scope="col">Description</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Category</th>
                                     <th scope="col">Image</th>
+                                    <th scope="col">Stock Amount</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sub_categories as $sub_category)
+                                @foreach ($products as $product)
                                     <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sub_category->category?->name }}</td>
-                                        <td>{{ $sub_category->name }}</td>
-                                        <td>{{ $sub_category->description }}</td>
-                                        <td>
-                                            <img src="{{ asset($sub_category->image) }}" alt="" height="70"
-                                                width="70">
+                                        <td>{{ $product->name }}</td>
+                                        <td>{{ $product->code }}</td>
+                                        <td>{{ $product->category->name }}</td>
+                                        <td><img src="{{ asset($product->image) }}" alt="" height="70"
+                                            width="70">
                                         </td>
-                                        <td>{{ $sub_category->status == 1 ? 'Published' : 'Unpublished' }}</td>
+                                        <td>{{ $product->stock_amount }}</td>
+                                        <td>{{ $product->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                         <td>
                                             <div class="d-flex gap-2 justify-content-center">
-                                                <a href="{{ route('sub-category.edit', $sub_category->id) }}"
+                                                <a href="{{ route('product.show', $product->id) }}"
+                                                    class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ route('product.edit', $product->id) }}"
                                                     class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
-                                                <form action="{{ route('sub-category.destroy', $sub_category->id) }}"
+                                                <form action="{{ route('product.destroy', $product->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')

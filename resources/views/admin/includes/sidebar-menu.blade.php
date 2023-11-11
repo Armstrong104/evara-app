@@ -140,8 +140,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">UI Elements</a></li>
-                        <li><a href="alerts.html" class="slide-item">Add Product</a></li>
-                        <li><a href="avatar.html" class="slide-item">Manage Product</a></li>
+                        <li><a href="{{route('product.create')}}" class="slide-item">Add Product</a></li>
+                        <li><a href="{{route('product.index')}}" class="slide-item">Manage Product</a></li>
                     </ul>
                 </li>
                 <li class="slide">

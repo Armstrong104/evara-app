@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Unit Code</label>
-                                <input type="text" class="form-control" name="code" value="{{$color->code}}"/>
+                                <input type="color" class="form-control" name="code" value="{{$color->code}}"/>
                                 <span class="text-danger">{{ $errors->has('code') ? $errors->first('code') : '' }}</span>
                             </div>
                             <div class="mb-3">

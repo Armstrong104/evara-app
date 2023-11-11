@@ -9,11 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    private static $category,$image,$imageName,$directory,$imageUrl;
+    private static $category,$image,$imageName,$directory,$imageUrl,$extension;
 
     // private static function getImageUrl($request){
     //     self::$image = $request->file('image');
-    //     self::$imageName = self::$image->getClientOriginalName();
+    //     self::$extension = self::$image->getClientOriginalName();
+    //     self::$imageName = time().'.'.self::$extension;
     //     self::$directory = "upload/category-images/";
     //     self::$image->move(self::$directory,self::$imageName);
     //     self::$imageUrl = self::$directory.self::$imageName;
