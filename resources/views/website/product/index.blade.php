@@ -7,8 +7,8 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index-2.html" rel="nofollow">Home</a>
-                <span></span> Fashion
-                <span></span> Abstract Print Patchwork Dress
+                <span></span> {{ $product->category->name }}
+                <span></span> {{ $product->name }}
             </div>
         </div>
     </div>
@@ -23,47 +23,34 @@
                                     <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                     <!-- MAIN SLIDES -->
                                     <div class="product-image-slider">
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-2.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-1.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-3.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-4.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-5.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-6.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="{{asset('/')}}website/assets/imgs/shop/product-16-7.jpg" alt="product image">
-                                        </figure>
+                                        @foreach ($product->productImages as $productImage)
+                                            <figure class="border-radius-10">
+                                                <img src="{{ asset($productImage->image) }}" alt="product image">
+                                            </figure>
+                                        @endforeach
+
+
                                     </div>
                                     <!-- THUMBNAILS -->
                                     <div class="slider-nav-thumbnails pl-15 pr-15">
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-3.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-4.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-5.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-6.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-7.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-8.jpg" alt="product image"></div>
-                                        <div><img src="{{asset('/')}}website/assets/imgs/shop/thumbnail-9.jpg" alt="product image"></div>
+                                        @foreach ($product->productImages as $productImage)
+                                            <figure class="border-radius-10">
+                                                <img src="{{ asset($productImage->image) }}" alt="product image"
+                                                    height="100" width="100">
+                                            </figure>
+                                        @endforeach
+
                                     </div>
                                 </div>
                                 <!-- End Gallery -->
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="detail-info">
-                                    <h2 class="title-detail">Colorful Pattern Shirts HD450</h2>
+                                    <h2 class="title-detail">{{ $product->name }}</h2>
                                     <div class="product-detail-rating">
                                         <div class="pro-details-brand">
-                                            <span> Brands: <a href="shop-grid-right.html">Bootstrap</a></span>
+                                            <span> Brands: <a
+                                                    href="shop-grid-right.html">{{ $product->brand->name }}</a></span>
                                         </div>
                                         <div class="product-rate-cover text-end">
                                             <div class="product-rate d-inline-block">
@@ -75,16 +62,15 @@
                                     </div>
                                     <div class="clearfix product-price-cover">
                                         <div class="product-price primary-color float-left">
-                                            <ins><span class="text-brand">$120.00</span></ins>
-                                            <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                            <ins><span class="text-brand">TK. {{ $product->selling_price }}</span></ins>
+                                            <ins><span class="old-price font-md ml-15">TK.
+                                                    {{ $product->regular_price }}</span></ins>
                                             <span class="save-price  font-md color3 ml-15">25% Off</span>
                                         </div>
                                     </div>
                                     <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                     <div class="short-desc mb-30">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia,
-                                            corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum
-                                            eligendi? Officia doloremque facere quia. Voluptatum, accusantium!</p>
+                                        <p>{{ $product->short_description }}</p>
                                     </div>
                                     <div class="product_sort_info font-xs mb-30">
                                         <ul>
@@ -97,30 +83,22 @@
                                     <div class="attr-detail attr-color mb-15">
                                         <strong class="mr-10">Color</strong>
                                         <ul class="list-filter color-filter">
-                                            <li><a href="#" data-color="Red"><span
-                                                        class="product-color-red"></span></a></li>
-                                            <li><a href="#" data-color="Yellow"><span
-                                                        class="product-color-yellow"></span></a></li>
-                                            <li class="active"><a href="#" data-color="White"><span
-                                                        class="product-color-white"></span></a></li>
-                                            <li><a href="#" data-color="Orange"><span
-                                                        class="product-color-orange"></span></a></li>
-                                            <li><a href="#" data-color="Cyan"><span
-                                                        class="product-color-cyan"></span></a></li>
-                                            <li><a href="#" data-color="Green"><span
-                                                        class="product-color-green"></span></a></li>
-                                            <li><a href="#" data-color="Purple"><span
-                                                        class="product-color-purple"></span></a></li>
+                                            @foreach ($product->colors as $color)
+                                                <li><a href="#" data-color="red"><span
+                                                            class="product-color-white">{{ $color->color->name . ' ' }}</span></a>
+                                                </li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                     <div class="attr-detail attr-size">
                                         <strong class="mr-10">Size</strong>
                                         <ul class="list-filter size-filter font-small">
-                                            <li><a href="#">S</a></li>
-                                            <li class="active"><a href="#">M</a></li>
-                                            <li><a href="#">L</a></li>
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">XXL</a></li>
+
+                                            @foreach ($product->sizes as $size)
+                                                <li><a href="#">{{ $size->size->code }}</a></li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                     <div class="bt-1 border-color-1 mt-30 mb-30"></div>
@@ -134,8 +112,8 @@
                                             <button type="submit" class="button button-add-to-cart">Add to cart</button>
                                             <a aria-label="Add To Wishlist" class="action-btn hover-up"
                                                 href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up"
-                                                href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
+                                                    class="fi-rs-shuffle"></i></a>
                                         </div>
                                     </div>
                                     <ul class="product-meta font-xs color-grey mt-50">
@@ -143,7 +121,7 @@
                                         <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a
                                                 href="#" rel="tag">Women</a>, <a href="#"
                                                 rel="tag">Dress</a> </li>
-                                        <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span>
+                                        <li>Availability:<span class="in-stock text-success ml-5">{{ $product->stock_amount }}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -288,16 +266,20 @@
                                     <ul class="text-grey-5 d-inline-block">
                                         <li><strong class="mr-10">Share this:</strong></li>
                                         <li class="social-facebook"><a href="#"><img
-                                                    src="{{asset('/')}}website/assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-facebook.svg"
+                                                    alt=""></a>
                                         </li>
                                         <li class="social-twitter"> <a href="#"><img
-                                                    src="{{asset('/')}}website/assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
+                                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-twitter.svg"
+                                                    alt=""></a>
                                         </li>
                                         <li class="social-instagram"><a href="#"><img
-                                                    src="{{asset('/')}}website/assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-instagram.svg"
+                                                    alt=""></a>
                                         </li>
                                         <li class="social-linkedin"><a href="#"><img
-                                                    src="{{asset('/')}}website/assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
+                                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-pinterest.svg"
+                                                    alt=""></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -311,7 +293,8 @@
                                                 <div class="single-comment justify-content-between d-flex">
                                                     <div class="user justify-content-between d-flex">
                                                         <div class="thumb text-center">
-                                                            <img src="{{asset('/')}}website/assets/imgs/page/avatar-6.jpg" alt="">
+                                                            <img src="{{ asset('/') }}website/assets/imgs/page/avatar-6.jpg"
+                                                                alt="">
                                                             <h6><a href="#">Jacky Chan</a></h6>
                                                             <p class="font-xxs">Since 2012</p>
                                                         </div>
@@ -336,7 +319,8 @@
                                                 <div class="single-comment justify-content-between d-flex">
                                                     <div class="user justify-content-between d-flex">
                                                         <div class="thumb text-center">
-                                                            <img src="{{asset('/')}}website/assets/imgs/page/avatar-7.jpg" alt="">
+                                                            <img src="{{ asset('/') }}website/assets/imgs/page/avatar-7.jpg"
+                                                                alt="">
                                                             <h6><a href="#">Ana Rosie</a></h6>
                                                             <p class="font-xxs">Since 2008</p>
                                                         </div>
@@ -361,7 +345,8 @@
                                                 <div class="single-comment justify-content-between d-flex">
                                                     <div class="user justify-content-between d-flex">
                                                         <div class="thumb text-center">
-                                                            <img src="{{asset('/')}}website/assets/imgs/page/avatar-8.jpg" alt="">
+                                                            <img src="{{ asset('/') }}website/assets/imgs/page/avatar-8.jpg"
+                                                                alt="">
                                                             <h6><a href="#">Steven Keny</a></h6>
                                                             <p class="font-xxs">Since 2010</p>
                                                         </div>
@@ -479,9 +464,11 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img" src="{{asset('/')}}website/assets/imgs/shop/product-2-1.jpg"
+                                                        <img class="default-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-2-1.jpg"
                                                             alt="">
-                                                        <img class="hover-img" src="{{asset('/')}}website/assets/imgs/shop/product-2-2.jpg"
+                                                        <img class="hover-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-2-2.jpg"
                                                             alt="">
                                                     </a>
                                                 </div>
@@ -520,9 +507,11 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img" src="{{asset('/')}}website/assets/imgs/shop/product-3-1.jpg"
+                                                        <img class="default-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-3-1.jpg"
                                                             alt="">
-                                                        <img class="hover-img" src="{{asset('/')}}website/assets/imgs/shop/product-4-2.jpg"
+                                                        <img class="hover-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-2.jpg"
                                                             alt="">
                                                     </a>
                                                 </div>
@@ -561,9 +550,11 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img" src="{{asset('/')}}website/assets/imgs/shop/product-4-1.jpg"
+                                                        <img class="default-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-1.jpg"
                                                             alt="">
-                                                        <img class="hover-img" src="{{asset('/')}}website/assets/imgs/shop/product-4-2.jpg"
+                                                        <img class="hover-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-4-2.jpg"
                                                             alt="">
                                                     </a>
                                                 </div>
@@ -602,9 +593,11 @@
                                             <div class="product-img-action-wrap">
                                                 <div class="product-img product-img-zoom">
                                                     <a href="shop-product-right.html" tabindex="0">
-                                                        <img class="default-img" src="{{asset('/')}}website/assets/imgs/shop/product-5-1.jpg"
+                                                        <img class="default-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-5-1.jpg"
                                                             alt="">
-                                                        <img class="hover-img" src="{{asset('/')}}website/assets/imgs/shop/product-3-2.jpg"
+                                                        <img class="hover-img"
+                                                            src="{{ asset('/') }}website/assets/imgs/shop/product-3-2.jpg"
                                                             alt="">
                                                     </a>
                                                 </div>
@@ -642,7 +635,8 @@
                             </div>
                         </div>
                         <div class="banner-img banner-big wow fadeIn f-none animated mt-50">
-                            <img class="border-radius-10" src="{{asset('/')}}website/assets/imgs/banner/banner-4.png" alt="">
+                            <img class="border-radius-10"
+                                src="{{ asset('/') }}website/assets/imgs/banner/banner-4.png" alt="">
                             <div class="banner-text">
                                 <h4 class="mb-15 mt-40">Repair Services</h4>
                                 <h2 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h2>

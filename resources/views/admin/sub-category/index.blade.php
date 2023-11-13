@@ -42,7 +42,7 @@
                                 @foreach ($sub_categories as $sub_category)
                                     <tr class="text-center">
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $sub_category->category?->name }}</td>
+                                        <td>{{ isset($sub_category->category->name) ? $sub_category->category->name : ' ' }}</td>
                                         <td>{{ $sub_category->name }}</td>
                                         <td>{{ $sub_category->description }}</td>
                                         <td>

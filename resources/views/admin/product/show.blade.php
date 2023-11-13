@@ -1,5 +1,6 @@
 @extends('admin.master')
 
+
 @section('title', 'Product Details')
 
 @section('body')
@@ -72,7 +73,7 @@
                                 <th>Product Color</th>
                                 <td>
                                     @foreach ($product->colors as $color)
-                                        <span>{{ $color->color->name.' '}}</span>
+                                        <span>{{ $color->color->name . ' ' }}</span>
                                     @endforeach
                                 </td>
                             </tr>
@@ -80,17 +81,17 @@
                                 <th>Product Size</th>
                                 <td>
                                     @foreach ($product->sizes as $size)
-                                        <span>{{ $size->size->name.' '}}</span>
+                                        <span>{{ $size->size->name . ' ' }}</span>
                                     @endforeach
                                 </td>
                             </tr>
                             <tr>
                                 <th>Short Description</th>
-                                <td>{{ substr($product->short_description,0,50) }}</td>
+                                <td>{{ $product->short_description }}</td>
                             </tr>
                             <tr>
                                 <th>Long Description</th>
-                                <td>{!! substr($product->long_description,0,70) !!}</td>
+                                <td>{!!  $product->long_description  !!}</td>
                             </tr>
                             <tr>
                                 <th>Price</th>
@@ -105,19 +106,19 @@
                             </tr>
                             <tr>
                                 <th>Total View</th>
-                                <td>{{$product->hit_count}}</td>
+                                <td>{{ $product->hit_count }}</td>
                             </tr>
                             <tr>
                                 <th>Total Sale</th>
-                                <td>{{$product->sales_count}}</td>
+                                <td>{{ $product->sales_count }}</td>
                             </tr>
                             <tr>
                                 <th>Featured Status</th>
-                                <td>{{ $product->featured_status == 1 ? "Featured" : "Not Featured"}}</td>
+                                <td>{{ $product->featured_status == 1 ? 'Featured' : 'Not Featured' }}</td>
                             </tr>
                             <tr>
                                 <th>Publication Status</th>
-                                <td>{{ $product->status == 1 ? "Published" : "Not Published"}}</td>
+                                <td>{{ $product->status == 1 ? 'Published' : 'Not Published' }}</td>
                             </tr>
                         </table>
                     </div>

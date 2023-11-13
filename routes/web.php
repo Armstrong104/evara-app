@@ -6,6 +6,7 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaraController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductOfferController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [EvaraController::class,'index'])->name('home');
-Route::get('/product-category', [EvaraController::class,'category'])->name('product-category');
-Route::get('/product-details', [EvaraController::class,'product'])->name('product-details');
+Route::get('/product-category/{id}', [EvaraController::class,'category'])->name('product-category');
+Route::get('/product-details/{id}', [EvaraController::class,'product'])->name('product-details');
 
 Route::middleware([
     'auth:sanctum',
@@ -30,5 +31,6 @@ Route::middleware([
     Route::resource('color',ColorController::class);
     Route::resource('size',SizeController::class);
     Route::resource('product',ProductController::class);
+    Route::resource('product_offer', ProductOfferController::class);
     Route::get('/get-sub-category-by-category',[ProductController::class,'getSubCategoryByCategory'])->name('get-sub-category-by-category');
 });

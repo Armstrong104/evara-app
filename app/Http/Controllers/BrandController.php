@@ -10,6 +10,7 @@ class BrandController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
         return view('admin.brand.index',['brands' => Brand::all()]);
@@ -73,4 +74,6 @@ class BrandController extends Controller
         Brand::deleteBrand($brand);
         return back()->with('msg','Brand Deleted Successfully!');
     }
+
+
 }

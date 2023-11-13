@@ -47,8 +47,9 @@
                                         <td>{{ $product->code }}</td>
                                         <td>{{ $product->category->name }}</td>
                                         <td><img src="{{ asset($product->image) }}" alt="" height="70"
-                                            width="70">
+                                                width="70">
                                         </td>
+                                        
                                         <td>{{ $product->stock_amount }}</td>
                                         <td>{{ $product->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                         <td>
@@ -57,8 +58,7 @@
                                                     class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i></a>
                                                 <a href="{{ route('product.edit', $product->id) }}"
                                                     class="btn btn-sm btn-outline-success"><i class="fa fa-edit"></i></a>
-                                                <form action="{{ route('product.destroy', $product->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
