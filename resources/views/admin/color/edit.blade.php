@@ -25,7 +25,7 @@
                         <h3 class="card-title">Edit Color Form</h3>
                     </div>
                     <div class="card-body">
-                        @include('admin.notify')
+                        <span class="text-center">@include('notify')</span>
                         <form action="{{ route('color.update',$color->id) }}" method="POST">
                             @csrf
                             @method('PUT')

@@ -24,7 +24,7 @@
                     <h3 class="card-title">Manage Product Table</h3>
                 </div>
                 <div class="card-body">
-                    @include('admin.notify')
+                    <span class="text-center">@include('notify')</span>
                     <div class="table-responsive">
                         <table class="table table-bordered text-nowrap border-bottom" id="example3">
                             <thead>
@@ -49,7 +49,7 @@
                                         <td><img src="{{ asset($product->image) }}" alt="" height="70"
                                                 width="70">
                                         </td>
-                                        
+
                                         <td>{{ $product->stock_amount }}</td>
                                         <td>{{ $product->status == 1 ? 'Published' : 'Unpublished' }}</td>
                                         <td>

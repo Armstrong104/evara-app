@@ -103,12 +103,12 @@
                             <path
                                 d="M12.1124268,2.0010986C7.6941528,1.9389648,4.0620728,5.4703979,4,9.8886719c0,5.4482422,7.3642578,11.7285156,7.6777344,11.9931641C11.7677002,21.958313,11.881958,22.0001831,12,22c0.118042,0.0001831,0.2322998-0.041687,0.3222656-0.1181641C12.6357422,21.6171875,20,15.3369141,20,9.8886719C19.9391479,5.5579224,16.4431763,2.0619507,12.1124268,2.0010986z M12,20.8339844C10.5839844,19.5625,5,14.2666016,5,9.8886719C5.0353394,6.0553589,8.166626,2.973877,12,3c3.833374-0.026123,6.9647217,3.0553589,7,6.8886719C19,14.2626953,13.414978,19.5615234,12,20.8339844z M12,7c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3c1.6561279-0.0018311,2.9981689-1.3438721,3-3C15,8.3431396,13.6568604,7,12,7z M12,12c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2c1.1040039,0.0014038,1.9985962,0.8959961,2,2C14,11.1045532,13.1045532,12,12,12z" />
                         </svg>
-                        <span class="side-menu__label">Color Module</span><i
+                        <span class="side-menu__label">courier Module</span><i
                             class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Maps</a></li>
-                        <li><a href="{{route('color.create')}}" class="slide-item">Add Color</a></li>
-                        <li><a href="{{route('color.index')}}" class="slide-item">Manage Color</a></li>
+                        <li><a href="{{route('courier.create')}}" class="slide-item">Add courier</a></li>
+                        <li><a href="{{route('courier.index')}}" class="slide-item">Manage courier</a></li>
                     </ul>
                 </li>
 
@@ -172,9 +172,41 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Advanced UI</a></li>
-                        <li><a href="accordion.html" class="slide-item">Manage Order</a></li>
+                        <li><a href="{{route('order.index')}}" class="slide-item">Manage Order</a></li>
                     </ul>
                 </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
+                            enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                            <path
+                                d="M21.5,21H20V4.5C20,4.223877,19.776123,4,19.5,4S19,4.223877,19,4.5V21h-3v-8.5c0-0.276123-0.223877-0.5-0.5-0.5S15,12.223877,15,12.5V21h-3V8.5C12,8.223877,11.776123,8,11.5,8S11,8.223877,11,8.5V21H8v-4.5C8,16.223877,7.776123,16,7.5,16S7,16.223877,7,16.5V21H3V2.5C3,2.223877,2.776123,2,2.5,2S2,2.223877,2,2.5v19.0005493C2.0001831,21.7765503,2.223999,22.0001831,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z" />
+                        </svg>
+                        <span class="side-menu__label">Feature Module</span><i
+                            class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Charts</a></li>
+                        <li><a href="{{route('feature.create')}}" class="slide-item"> Add Feature</a></li>
+                        <li><a href="{{route('feature.index')}}" class="slide-item"> Manage Feature</a></li>
+
+                    </ul>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
+                            enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                            <path
+                                d="M12.1124268,2.0010986C7.6941528,1.9389648,4.0620728,5.4703979,4,9.8886719c0,5.4482422,7.3642578,11.7285156,7.6777344,11.9931641C11.7677002,21.958313,11.881958,22.0001831,12,22c0.118042,0.0001831,0.2322998-0.041687,0.3222656-0.1181641C12.6357422,21.6171875,20,15.3369141,20,9.8886719C19.9391479,5.5579224,16.4431763,2.0619507,12.1124268,2.0010986z M12,20.8339844C10.5839844,19.5625,5,14.2666016,5,9.8886719C5.0353394,6.0553589,8.166626,2.973877,12,3c3.833374-0.026123,6.9647217,3.0553589,7,6.8886719C19,14.2626953,13.414978,19.5615234,12,20.8339844z M12,7c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3c1.6561279-0.0018311,2.9981689-1.3438721,3-3C15,8.3431396,13.6568604,7,12,7z M12,12c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2c1.1040039,0.0014038,1.9985962,0.8959961,2,2C14,11.1045532,13.1045532,12,12,12z" />
+                        </svg>
+                        <span class="side-menu__label">Courier Module</span><i
+                            class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Maps</a></li>
+                        <li><a href="{{route('courier.create')}}" class="slide-item">Add Courier</a></li>
+                        <li><a href="{{route('courier.index')}}" class="slide-item">Manage Courier</a></li>
+                    </ul>
+                </li>
+
 
                 <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="#">

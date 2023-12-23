@@ -24,7 +24,7 @@
                     <h3 class="card-title">Manage Product Offer Table</h3>
                 </div>
                 <div class="card-body">
-                    @include('admin.notify')
+                    <span class="text-center">@include('notify')</span>
                     <div class="table-responsive">
                         <table class="table table-bordered text-nowrap border-bottom" id="example3">
                             <thead>
@@ -48,7 +48,7 @@
                                         <td>{{ $product_offer->title_one }}</td>
                                         <td>{{ $product_offer->title_two }}</td>
                                         <td>{{ $product_offer->title_three }}</td>
-                                        <td>{{ Str::limit($product_offer->description, 20) }}</td>
+                                        <td>{{ Str::limit($product_offer->description, 10) }}</td>
                                         <td>
                                             <img src="{{ asset($product_offer->image) }}" alt="" height="70"
                                                 width="70">

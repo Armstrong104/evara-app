@@ -25,7 +25,7 @@
                         <h3 class="card-title">Edit Product Offer Form</h3>
                     </div>
                     <div class="card-body">
-                        @include('admin.notify')
+                        <span class="text-center">@include('notify')</span>
                         <form action="{{ route('product_offer.update', $product_offer->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
@@ -47,19 +47,30 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Title One</label>
-                                <input type="text" class="form-control" name="title_one" value="{{ $product_offer->title_one }}">
+                                <input type="text" class="form-control" name="title_one"
+                                    value="{{ $product_offer->title_one }}">
+                                    <span
+                                    class="text-danger">{{ $errors->has('title_one') ? $errors->first('title_one') : '' }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Title Two</label>
-                                <input type="text" class="form-control" name="title_two" value="{{ $product_offer->title_two }}">
+                                <input type="text" class="form-control" name="title_two"
+                                    value="{{ $product_offer->title_two }}">
+                                    <span
+                                    class="text-danger">{{ $errors->has('title_two') ? $errors->first('title_two') : '' }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Title Three</label>
-                                <input type="text" class="form-control" name="title_three" value="{{ $product_offer->title_three }}">
+                                <input type="text" class="form-control" name="title_three"
+                                    value="{{ $product_offer->title_three }}">
+                                    <span
+                                    class="text-danger">{{ $errors->has('title_three') ? $errors->first('title_three') : '' }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Product Offer Description</label>
                                 <textarea name="description" class="form-control" rows="3">{{ $product_offer->description }}</textarea>
+                                <span
+                                class="text-danger">{{ $errors->has('description') ? $errors->first('description') : '' }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Product Offer Image</label>

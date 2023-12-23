@@ -24,7 +24,7 @@
                         <h3 class="card-title">Manage Unit Table</h3>
                     </div>
                     <div class="card-body">
-                        @include('admin.notify')
+                        <span class="text-center">@include('notify')</span>
                         <div class="table-responsive">
                             <table class="table table-bordered text-nowrap border-bottom" id="example3">
                                 <thead>

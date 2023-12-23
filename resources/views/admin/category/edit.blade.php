@@ -25,7 +25,7 @@
                         <h3 class="card-title">Edit Category Form</h3>
                     </div>
                     <div class="card-body">
-                        @include('admin.notify')
+                        <span class="text-center">@include('notify')</span>
                         <form action="{{ route('category.update', $category->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf

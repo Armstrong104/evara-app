@@ -25,7 +25,7 @@
                         <h3 class="card-title">Add Product Offer Form</h3>
                     </div>
                     <div class="card-body">
-                        @include('admin.notify')
+                        <span class="text-center">@include('notify')</span>
                         <form action="{{ route('product_offer.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -45,6 +45,7 @@
                                 <label class="form-label">Title One</label>
                                 <input type="text" class="form-control" name="title_one" value="{{ old('title_one') }}">
                                 <span class="text-danger">{{ $errors->has('title_one') ? $errors->first('title_one') : '' }}</span>
+
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Title Two</label>
@@ -59,6 +60,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Product Offer Description</label>
                                 <textarea name="description" class="form-control" rows="3"></textarea>
+                                <span class="text-danger">{{ $errors->has('description') ? $errors->first('description') : '' }}</span>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Product Offer Image</label>

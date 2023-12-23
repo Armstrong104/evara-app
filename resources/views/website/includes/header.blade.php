@@ -186,7 +186,7 @@
                                     <div class="product-extra-link2">
                                         <button type="submit" class="button button-add-to-cart">Add to cart</button>
                                         <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                            href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                            href=" {{ route('wishlist.index')}}"><i class="fi-rs-heart"></i></a>
                                         <a aria-label="Compare" class="action-btn hover-up"
                                             href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                     </div>
@@ -252,11 +252,23 @@
                                                     alt="">Pусский</a></li>
                                     </ul>
                                 </li>
-                                <li><i class="fi-rs-user"></i><a href="{{ route('login') }}">Log In</a></li>
+                                @if (Session::get('customer_id'))
+                                <li>
+                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i>
+                                        {{ Session::get('customer_name') }} <i class="fi-rs-angle-small-down"></i></a>
+                                    <ul class="language-dropdown">
+                                        <li><a href="{{route('customer.dashboard')}}"><i class="fi-rs-home"></i>Dashboard</a></li>
+                                        <li><a href="{{ route('customer-logout') }}"><i class="fi-rs-lock"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                                @else
+                                <li><i class="fi-rs-user"></i><a href="{{ route('login-register') }}">Login / SignUp</a></li>
+                                @endif
+{{--
                                 <li><img width="18" class="me-2" height="18"
                                         src="https://img.icons8.com/fluency-systems-regular/48/signing-a-document--v1.png"
                                         alt="signing-a-document--v1" /><a href="{{ route('register') }}">Register</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -292,54 +304,50 @@
                         <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
-                                    <a href="shop-wishlist.html">
+                                    <a href="{{ route('wishlist.index') }}">
                                         <img class="svgInject" alt="Evara"
                                             src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-heart.svg">
-                                        <span class="pro-count blue">4</span>
+                                        <span class="pro-count blue">{{ count($wishlists) }}</span>
                                     </a>
                                 </div>
                                 <div class="header-action-icon-2">
-                                    <a class="mini-cart-icon" href="shop-cart.html">
+                                    <a class="mini-cart-icon" href="{{ route('cart.index') }}">
                                         <img alt="Evara"
                                             src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-cart.svg">
-                                        <span class="pro-count blue">2</span>
+                                        <span class="pro-count blue">{{ count(Cart::content()) }}</span>
                                     </a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         <ul>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="shop-product-right.html"><img alt="Evara"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/thumbnail-3.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                    <h4><span>1 × </span>$800.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="shop-product-right.html"><img alt="Evara"
-                                                            src="{{ asset('/') }}website/assets/imgs/shop/thumbnail-2.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                    <h4><span>1 × </span>$3200.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
+                                            @php
+                                                $sum = 0;
+                                            @endphp
+
+                                            @foreach (Cart::content() as $cartItem)
+                                                <li>
+                                                    <div class="shopping-cart-img">
+                                                        <a href="shop-product-right.html"><img alt="Evara"
+                                                                src="{{ asset($cartItem->options->image) }}"></a>
+                                                    </div>
+                                                    <div class="shopping-cart-title">
+                                                        <h4><a href="">{{ $cartItem->name }}</a></h4>
+                                                        <h4><span>{{ $cartItem->qty }} × </span>{{ $cartItem->price }}
+                                                        </h4>
+                                                    </div>
+                                                    <div class="shopping-cart-delete">
+                                                        <a href="{{ route('cart.delete',['rowId' => $cartItem->rowId]) }}"  onclick="return confirm('Are you sure to delete this?')"><i class="fi-rs-cross-small"></i></a>
+                                                    </div>
+                                                </li>
+                                                @php($sum += $cartItem->subtotal)
+
+                                            @endforeach
                                         </ul>
                                         <div class="shopping-cart-footer">
                                             <div class="shopping-cart-total">
-                                                <h4>Total <span>$4000.00</span></h4>
+                                                <h4>Total <span>TK.{{ $sum}}</span></h4>
                                             </div>
                                             <div class="shopping-cart-button">
-                                                <a href="shop-cart.html" class="outline">View cart</a>
-                                                <a href="shop-checkout.html">Checkout</a>
+                                                <a href="{{ route('cart.index') }}" class="outline">View cart</a>
+                                                <a href="{{ route('checkout') }}">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -365,8 +373,8 @@
                             <div class="categori-dropdown-wrap categori-dropdown-active-large">
                                 <ul>
                                     @foreach ($categories as $category)
-                                        <li class="{{count($category->subCategory) > 0 ? 'has-children' : ''}}">
-                                            <a href="{{ route('product-category',['id' => $category->id]) }}"><i
+                                        <li class="{{ count($category->subCategory) > 0 ? 'has-children' : '' }}">
+                                            <a href="{{ route('product-category', ['id' => $category->id]) }}"><i
                                                     class="evara-font-dress"></i>{{ $category->name }}</a>
                                             @if (count($category->subCategory) > 0)
                                                 <div class="dropdown-menu">
@@ -543,10 +551,10 @@
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                <a class="mini-cart-icon" href="{{ route('cart.index') }}">
                                     <img alt="Evara"
                                         src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-cart.svg">
-                                    <span class="pro-count white">2</span>
+                                    <span class="pro-count white">{{ count(Cart::content()) }}</span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
@@ -635,8 +643,7 @@
                                 </li>
                                 <li> <a href="shop-grid-right.html"><i class="evara-font-smartphone"></i>
                                         Cellphones</a></li>
-                                <li><a href=""><i
-                                            class="evara-font-desktop"></i>Computer & Office</a></li>
+                                <li><a href=""><i class="evara-font-desktop"></i>Computer & Office</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Consumer
                                         Electronics</a></li>
                                 <li><a href="shop-grid-right.html"><i class="evara-font-home"></i>Home & Garden</a>
