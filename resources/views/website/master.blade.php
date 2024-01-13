@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Evara - @yield('title')</title>
+    <title>{{ $setting->company_name }} - @yield('title')</title>
     @include('website.includes.meta')
     @include('website.includes.style')
 

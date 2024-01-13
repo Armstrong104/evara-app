@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            //
+        Schema::create('terms_conditions', function (Blueprint $table) {
+            $table->id();
+            $table->longText('description');
+            $table->tinyInteger('status')->default(1);
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->integer('courier_id')->default(0);
-        });
+        Schema::dropIfExists('terms_conditions');
     }
 };

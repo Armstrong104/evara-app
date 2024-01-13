@@ -82,9 +82,9 @@
 											Login
 										</button>
 									</div>
-									<div class="text-center pt-3">
+									{{-- <div class="text-center pt-3">
 										<p class="text-dark mb-0">Not a member?<a href="{{route('register')}}" class="text-primary ms-1">Create an Account</a></p>
-									</div>
+									</div> --}}
 								</form>
 							</div>
 							<div class="card-footer">

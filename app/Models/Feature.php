@@ -12,7 +12,7 @@ class Feature extends Model
     private static $feature,$imageUrl;
 
     public static function newFeature($request){
-        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'feature-images') : ' ';
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'upload/feature-images/') : ' ';
         self::$feature = new feature();
         self::saveBasicInfo($request,self::$feature,self::$imageUrl);
     }
@@ -23,7 +23,7 @@ class Feature extends Model
             if(file_exists($feature->image)){
                 unlink($feature->image);
             }
-            self::$imageUrl = imageUpload($request->image,'feature-images');
+            self::$imageUrl = imageUpload($request->image,'upload/feature-images/');
         }else{
             self::$imageUrl = $feature->image;
         }

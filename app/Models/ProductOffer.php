@@ -13,7 +13,7 @@ class ProductOffer extends Model
 
 
     public static function newProductOffer($request){
-        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'productOffer-images') : ' ';
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'upload/productOffer-images/') : ' ';
         self::$productOffer = new ProductOffer();
         self::saveBasicInfo($request,self::$productOffer,self::$imageUrl);
     }
@@ -23,7 +23,7 @@ class ProductOffer extends Model
             if(file_exists($productOffer->image)){
                 unlink($productOffer->image);
             }
-            self::$imageUrl = imageUpload($request->image,'productOffer-images');
+            self::$imageUrl = imageUpload($request->image,'upload/productOffer-images/');
         }else{
             self::$imageUrl = $productOffer->image;
         }

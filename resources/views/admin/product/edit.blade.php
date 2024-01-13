@@ -23,6 +23,7 @@
                 <div class="card">
                     <div class="card-header border-bottom">
                         <h3 class="card-title">Edit Product Form</h3>
+                        <a href="{{ route('product_offer.index') }}" class="btn btn-primary rounded-0 ms-auto">Manage Product Offer</a>
                     </div>
                     <div class="card-body">
                         <span class="text-center">@include('notify')</span>

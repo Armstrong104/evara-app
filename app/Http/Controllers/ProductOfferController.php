@@ -35,7 +35,7 @@ class ProductOfferController extends Controller
                 'title_one' => 'required',
                 'title_two' => 'required',
                 'title_three' => 'required',
-                'image' => 'required | image',
+                'image' => 'image',
                 'description' => 'required'
             ]
         );
@@ -73,7 +73,7 @@ class ProductOfferController extends Controller
                 'title_one' => 'required',
                 'title_two' => 'required',
                 'title_three' => 'required',
-                'image' => 'required | image',
+                'image' => 'image',
                 'description' => 'required'
             ]
         );

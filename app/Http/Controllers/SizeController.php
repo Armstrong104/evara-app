@@ -29,7 +29,7 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required | unique:sizes,name'
+            'name' => 'required | unique:sizes'
         ]);
         Size::newSize($request);
         return back()->with('msg','Size Added Successfully!');

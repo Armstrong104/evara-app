@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Models\Product;
+use App\Models\OrderDetail;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+
+
 
 class OrderController extends Controller
 {
@@ -65,6 +68,18 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Order::deleteOrder($id);
+        OrderDetail::deleteOrderDetailInfo($id);
+        return back()->with('msg','Order information deleted successfully.');
+    }
+
+    public function showInvoice(string $id)
+    {
+        return view('admin.order.invoice-show', ['order' => Order::find($id)]);
+    }
+
+    public function showDownload(string $id){
+        $pdf = Pdf::loadView('admin.order.invoice-download',['order' => Order::find($id)]);
+        return $pdf->stream();
     }
 }

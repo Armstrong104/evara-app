@@ -94,8 +94,8 @@
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>TK. {{ $product->selling_price }} </span>
-                                            <span class="old-price">TK. {{ $product->regular_price }}</span>
+                                            <span>&#2547; {{ $product->selling_price }} </span>
+                                            <span class="old-price">&#2547; {{ $product->regular_price }}</span>
                                         </div>
                                         <div class="product-action-1 show">
                                             <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i

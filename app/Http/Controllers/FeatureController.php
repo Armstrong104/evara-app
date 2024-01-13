@@ -29,7 +29,7 @@ class FeatureController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required | unique:features,name',
+            'name' => 'required | unique:features',
             'image' => 'image'
         ]);
 

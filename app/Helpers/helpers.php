@@ -1,9 +1,9 @@
 <?php
 
-function imageUpload($image, $path)
+function imageUpload($image, $directory)
 {
-    $imgName = $path . time() . rand(0,500000) . '.' . $image->extension();
-    $directory =  'upload/'.$path . '/' ;
-    $image->move($directory, $imgName);
-    return $directory . $imgName;
+    $imageExtension = $image->getClientOriginalExtension();
+    $imageName = rand(10000,50000) . '.' . $imageExtension;
+    $image->move($directory, $imageName);
+    return $directory . $imageName;
 }

@@ -54,12 +54,12 @@
                                                 <a href="{{ route('order.edit', $order->id) }}"
                                                     class="btn btn-sm btn-outline-success {{ $order->order_status == 'Complete' ? 'disabled' : ''}}" title="Order Edit"><i
                                                         class="fa fa-edit"></i></a>
-                                                {{-- <a href="{{ route('order', $order->id) }}"
+                                                <a href="{{ route('order.invoice-show',['id' => $order->id]) }}"
                                                     class="btn btn-sm btn-outline-primary" title="View Order Invoice"><i
                                                         class="fa fa-info"></i></a>
-                                                <a href="{{ route('order.show', $order->id) }}"
-                                                    class="btn btn-sm btn-outline-warning" title="Download Order Invoice"><i
-                                                        class="fa fa-download"></i></a> --}}
+                                                <a href="{{ route('order.invoice-download',$order->id) }}"
+                                                    class="btn btn-sm btn-outline-warning" target="_blank" title="Download Order Invoice"><i
+                                                        class="fa fa-download"></i></a>
                                                 <form action="{{ route('order.destroy', $order->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

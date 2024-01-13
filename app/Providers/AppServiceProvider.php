@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Setting;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['website.master'],function($view){
             $view->with('categories',Category::all());
             $view->with('wishlists',Wishlist::where('customer_id',Session::get('customer_id'))->get());
+            $view->with('setting',Setting::latest()->first());
         });
 
     }

@@ -15,14 +15,14 @@ class Category extends Model
     //     self::$image = $request->file('image');
     //     self::$extension = self::$image->getClientOriginalName();
     //     self::$imageName = time().'.'.self::$extension;
-    //     self::$directory = "upload/category-images/";
+    //     self::$directory = "upload/cavtegory-images/";
     //     self::$image->move(self::$directory,self::$imageName);
     //     self::$imageUrl = self::$directory.self::$imageName;
     //     return self::$imageUrl;
     // }
 
     public static function newCategory($request){
-        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'category-images') : ' ';
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'upload/category-images/') : 'upload/product.png';
         self::$category = new Category();
         self::saveBasicInfo($request,self::$category,self::$imageUrl);
 
@@ -33,7 +33,7 @@ class Category extends Model
             if(file_exists($category->image)){
                 unlink($category->image);
             }
-            self::$imageUrl = imageUpload($request->image,'category-images');
+            self::$imageUrl = imageUpload($request->image,'upload/category-images/');
         }else{
             self::$imageUrl = $category->image;
         }

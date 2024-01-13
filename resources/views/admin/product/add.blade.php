@@ -19,10 +19,11 @@
     <!-- PAGE-HEADER END -->
     <div class="container-fluid px-4 py-4">
         <div class="row g-4">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-bottom">
                         <h3 class="card-title">Add Product Form</h3>
+                        <a href="{{ route('product_offer.index') }}" class="btn btn-primary rounded-0 ms-auto">Manage Product Offer</a>
                     </div>
                     <div class="card-body">
                         <span class="text-center">@include('notify')</span>

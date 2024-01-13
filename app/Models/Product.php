@@ -14,7 +14,7 @@ class Product extends Model
 
     public static function newProduct($request){
         if($request->file('image')){
-            self::$imageUrl = imageUpload($request->image,'product-images');
+            self::$imageUrl = imageUpload($request->image,'upload/product-images/');
         }else{
             self::$imageUrl = 'upload/product.png';
         }
@@ -42,7 +42,7 @@ class Product extends Model
             if(file_exists($product->image)){
                 unlink($product->image);
             }
-            self::$imageUrl = imageUpload($request->image,'product-images');
+            self::$imageUrl = imageUpload($request->image,'upload/product-images/');
         }else{
             self::$imageUrl = $product->image;
         }

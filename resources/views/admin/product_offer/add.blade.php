@@ -19,7 +19,7 @@
     <!-- PAGE-HEADER END -->
     <div class="container-fluid px-4 py-4">
         <div class="row g-4">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-bottom">
                         <h3 class="card-title">Add Product Offer Form</h3>

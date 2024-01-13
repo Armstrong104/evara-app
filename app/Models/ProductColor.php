@@ -29,6 +29,13 @@ class ProductColor extends Model
         self::newProductColor($colors,$id);
     }
 
+    public static function deleteProductColor($id){
+        self::$productColors = ProductColor::where('product_id',$id)->get();
+        foreach(self::$productColors as $productColor){
+            $productColor->delete();
+        }
+    }
+
     public function color(){
         return $this->belongsTo(Color::class);
     }

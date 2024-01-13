@@ -20,7 +20,7 @@ class ProductSize extends Model
         }
     }
 
-    
+
     public static function updateProductSize($sizes,$id){
         self::$productSizes = ProductSize::where('product_id',$id)->get();
         foreach(self::$productSizes as $productSize){
@@ -28,6 +28,14 @@ class ProductSize extends Model
         }
 
         self::newProductSize($sizes,$id);
+    }
+
+    public static function deleteProductSize($id)
+    {
+        self::$productSizes = ProductSize::where('product_id',$id)->get();
+        foreach(self::$productSizes as $productSize){
+            $productSize->delete();
+        }
     }
 
     public function size(){

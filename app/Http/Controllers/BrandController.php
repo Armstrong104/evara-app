@@ -10,7 +10,7 @@ class BrandController extends Controller
     /**
      * Display a listing of the resource.
      */
-    
+
     public function index()
     {
         return view('admin.brand.index',['brands' => Brand::all()]);
@@ -30,12 +30,12 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required | unique:brands,name',
+            'name' => 'required | unique:brands',
             'image' => 'image'
         ]);
 
         Brand::newBrand($request);
-        return back()->with('msg','Brand Added Successfully!');
+        return back()->with('msg','Brand Created Successfully!');
     }
 
     /**

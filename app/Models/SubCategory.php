@@ -14,7 +14,7 @@ class SubCategory extends Model
 
 
     public static function newSubCategory($request){
-        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'subCategory-images') : ' ';
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'upload/subCategory-images/') : 'upload/product.png';
         self::$subCategory = new SubCategory();
         self::saveBasicInfo($request,self::$subCategory,self::$imageUrl);
     }
@@ -24,7 +24,7 @@ class SubCategory extends Model
             if(file_exists($subCategory->image)){
                 unlink($subCategory->image);
             }
-            self::$imageUrl = imageUpload($request->image,'subCategory-images');
+            self::$imageUrl = imageUpload($request->image,'upload/subCategory-images/');
         }else{
             self::$imageUrl = $subCategory->image;
         }

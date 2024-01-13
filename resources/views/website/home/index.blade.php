@@ -15,7 +15,7 @@
                                     <h2 class="animated fw-900">{{ $product_offer->title_two }}</h2>
                                     <h1 class="animated fw-900 text-brand">{{ $product_offer->title_three }}</h1>
                                     <p class="animated">{{ $product_offer->description }}</p>
-                                    <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html"> Shop
+                                    <a class="animated btn btn-brush btn-brush-3" href="{{ route('product-details',['id' => $product_offer->product_id]) }}"> Shop
                                         Now </a>
                                 </div>
                             </div>
@@ -100,15 +100,15 @@
                                         <div class="product-category">
                                             <a href="shop-grid-right.html">{{ $product->category->name }}</a>
                                         </div>
-                                        <h2><a href="shop-product-right.html">{{ $product->name }}</a></h2>
+                                        <h2><a href="{{ route('product-details',['id' => $product->id]) }}">{{ $product->name }}</a></h2>
                                         <div class="rating-result" title="90%">
                                             <span>
                                                 <span>90%</span>
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>TK. {{ $product->selling_price }}</span>
-                                            <span class="old-price">Tk. {{ $product->regular_price }}</span>
+                                            <span>	&#2547; {{ $product->selling_price }}</span>
+                                            <span class="old-price">&#2547; {{ $product->regular_price }}</span>
                                         </div>
                                         <div class="product-action-1 show">
                                             <a aria-label="Add To Cart" class="action-btn hover-up"

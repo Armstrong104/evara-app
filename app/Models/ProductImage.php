@@ -16,12 +16,12 @@ class ProductImage extends Model
         foreach ($images as $image) {
             self::$productImage = new ProductImage();
             self::$productImage->product_id = $id;
-            self::$productImage->image = imageUpload($image,'product-other-img');
+            self::$productImage->image = imageUpload($image,'upload/product-other-img/');
             self::$productImage->save();
         }
     }
 
-    
+
     public static function updateProductImage($images,$id){
         self::$productImages = ProductImage::where('product_id',$id)->get();
         foreach(self::$productImages as $productImage){
@@ -32,5 +32,15 @@ class ProductImage extends Model
         }
 
         self::newProductImage($images,$id);
+    }
+
+    public static function deleteProductImage($id){
+        self::$productImages = ProductImage::where('product_id',$id)->get();
+        foreach(self::$productImages as $productImage){
+            if(file_exists($productImage->image)){
+                unlink($productImage->image);
+            }
+            $productImage->delete();
+        }
     }
 }

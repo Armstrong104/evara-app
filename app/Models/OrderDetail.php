@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class OrderDetail extends Model
 {
     use HasFactory;
-    private static $orderDetail;
+    private static $orderDetail,$orderDetails;
 
     public static function newOrderDetail($order)
     {
@@ -25,6 +25,14 @@ class OrderDetail extends Model
             self::$orderDetail->save();
 
             Cart::remove($item->rowId);
+        }
+    }
+
+    public static function deleteOrderDetailInfo($id)
+    {
+        self::$orderDetails = OrderDetail::where('order_id',$id)->get();
+        foreach(self::$orderDetails as $orderDetail){
+            $orderDetail->delete();
         }
     }
 }

@@ -29,7 +29,7 @@ class UnitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required | unique:units,name'
+            'name' => 'required | unique:units'
         ]);
         Unit::newUnit($request);
         return back()->with('msg','Unit Added Successfully!');

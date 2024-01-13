@@ -87,8 +87,8 @@
 
             reader.onload = function(e) {
                 $('#categoryImage').attr('src', e.target.result);
-                $('#categoryImage').attr('height', 70);
-                $('#categoryImage').attr('width', 70);
+                $('#categoryImage').attr('height', 60);
+                $('#categoryImage').attr('width', 80);
             }
             reader.readAsDataURL(input.files[0]);
         }

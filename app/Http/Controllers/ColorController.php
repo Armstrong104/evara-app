@@ -29,7 +29,7 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required | unique:colors,name'
+            'name' => 'required | unique:colors'
         ]);
         Color::newColor($request);
         return back()->with('msg','Color Added Successfully!');

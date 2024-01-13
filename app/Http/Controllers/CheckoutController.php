@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
-    private $customer, $order, $orderDetail;
+    private $customer, $order, $orderDetail, $sslCommerzPayment;
     public function index(){
         $this->customer = '';
         if(Session::get('customer_id')){
@@ -32,10 +32,19 @@ class CheckoutController extends Controller
         Session::put('customer_id',$this->customer->id);
         Session::put('customer_name',$this->customer->name);
 
-        $this->order = Order::newOrder($this->customer,$request);
-        $this->orderDetail = OrderDetail::newOrderDetail($this->order);
+        if($request->payment_method == 'Online')
+        {
+            $this->sslCommerzPayment = new SslCommerzPaymentController();
+            $this->sslCommerzPayment->index($request,$this->customer);
+        }
+        elseif($request->payment_method == 'Cash')
+        {
+            $this->order = Order::newOrder($this->customer,$request);
+            $this->orderDetail = OrderDetail::newOrderDetail($this->order);
 
-        return redirect('/complete-order')->with('msg','Congratulation...your order post successfully. Please check your mail and wait we will contact with you soon.');
+            return redirect('/complete-order')->with('msg','Congratulation...your order post successfully. Please check your mail and wait we will contact with you soon.');
+        }
+
     }
 
     public function completeOrder(){

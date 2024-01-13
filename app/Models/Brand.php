@@ -12,7 +12,7 @@ class Brand extends Model
     private static $brand,$imageUrl;
 
     public static function newBrand($request){
-        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'brand-images') : ' ';
+        self::$imageUrl = $request->file('image') ? imageUpload($request->image,'brand-images') : 'upload/product.png';
         self::$brand = new Brand();
         self::saveBasicInfo($request,self::$brand,self::$imageUrl);
     }
@@ -23,7 +23,7 @@ class Brand extends Model
             if(file_exists($brand->image)){
                 unlink($brand->image);
             }
-            self::$imageUrl = imageUpload($request->image,'brand-images');
+            self::$imageUrl = imageUpload($request->image,'upload/brand-images/');
         }else{
             self::$imageUrl = $brand->image;
         }

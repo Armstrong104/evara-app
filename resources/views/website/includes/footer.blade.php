@@ -6,8 +6,8 @@
                     <div class="row align-items-center">
                         <div class="col flex-horizontal-center">
                             <img class="icon-email"
-                                src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-email.svg"
-                                alt="">
+                                src="{{ asset($setting->logo_png) }}"
+                                alt="{{ $setting->company_name }}">
                             <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
                         </div>
                         <div class="col my-4 my-md-0 des">
@@ -35,34 +35,34 @@
                     <div class="widget-about font-md mb-md-5 mb-lg-0">
                         <div class="logo logo-width-1 wow fadeIn animated">
                             <a href="index-2.html"><img
-                                    src="{{ asset('/') }}website/assets/imgs/theme/logo.svg"
-                                    alt="logo"></a>
+                                    src="{{ asset($setting->logo_png) }}"
+                                    alt="{{ $setting->company_name }}"></a>
                         </div>
                         <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                         <p class="wow fadeIn animated">
-                            <strong>Address: </strong>562 Wellington Road, Street 32, San Francisco
+                            <strong>Address: </strong>{{ $setting->company_address }}
                         </p>
                         <p class="wow fadeIn animated">
-                            <strong>Phone: </strong>+01 2222 365 /(+91) 01 2345 6789
+                            <strong>Phone: </strong>{{ $setting->support_phone }}
                         </p>
                         <p class="wow fadeIn animated">
-                            <strong>Hours: </strong>10:00 - 18:00, Mon - Sat
+                            <strong>Hours: </strong>{{ $setting->office_hour }}
                         </p>
                         <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
                         <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
-                            <a href="#"><img
+                            <a href="{{ $setting->facebook_link }}"><img
                                     src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-facebook.svg"
                                     alt=""></a>
-                            <a href="#"><img
+                            <a href="{{ $setting->twitter_link }}"><img
                                     src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-twitter.svg"
                                     alt=""></a>
-                            <a href="#"><img
+                            <a href="{{ $setting->instagram_link }}"><img
                                     src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-instagram.svg"
                                     alt=""></a>
-                            <a href="#"><img
-                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-pinterest.svg"
+                            <a href="{{ $setting->linkedin_link }}"><img
+                                    src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-linkedin.png"
                                     alt=""></a>
-                            <a href="#"><img
+                            <a href="{{ $setting->youtube_link }}"><img
                                     src="{{ asset('/') }}website/assets/imgs/theme/icons/icon-youtube.svg"
                                     alt=""></a>
                         </div>
@@ -71,11 +71,11 @@
                 <div class="col-lg-2 col-md-3">
                     <h5 class="widget-title wow fadeIn animated">About</h5>
                     <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="{{ route('about') }}">About Us</a></li>
                         <li><a href="#">Delivery Information</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ route('terms-condition') }}">Terms &amp; Conditions</a></li>
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         <li><a href="#">Support Center</a></li>
                     </ul>
                 </div>
@@ -96,18 +96,18 @@
                         <div class="col-md-8 col-lg-12">
                             <p class="wow fadeIn animated">From App Store or Google Play</p>
                             <div class="download-app wow fadeIn animated">
-                                <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active"
-                                        src="{{ asset('/') }}website/assets/imgs/theme/app-store.jpg"
+                                <a href="{{ $setting->ios_app_url }}" class="hover-up mb-sm-4 mb-lg-0"><img class="active"
+                                        src="{{ asset($setting->ios_app_image) }}"
                                         alt=""></a>
-                                <a href="#" class="hover-up"><img
-                                        src="{{ asset('/') }}website/assets/imgs/theme/google-play.jpg"
+                                <a href="{{ $setting->android_app_url }}" class="hover-up"><img
+                                        src="{{ asset($setting->android_app_image) }}"
                                         alt=""></a>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
                             <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
                             <img class="wow fadeIn animated"
-                                src="{{ asset('/') }}website/assets/imgs/theme/payment-method.png"
+                                src="{{ asset($setting->payment_method_image) }}"
                                 alt="">
                         </div>
                     </div>
@@ -121,12 +121,12 @@
                 <div class="footer-bottom"></div>
             </div>
             <div class="col-lg-6">
-                <p class="float-md-left font-sm text-muted mb-0">&copy; 2022, <strong
-                        class="text-brand">Evara</strong> - HTML Ecommerce Template </p>
+                <p class="float-md-left font-sm text-muted mb-0"> {{ date('Y') }}<strong
+                        class="text-brand">{{ $setting->company_name }}</strong> - HR Ecommerce </p>
             </div>
             <div class="col-lg-6">
                 <p class="text-lg-end text-start font-sm text-muted mb-0">
-                    Designed by <a href="http://alithemes.com/" target="_blank">Alithemes.com</a>. All rights
+                    Designed by <a href="#" target="_blank">HR Ecommerce</a>. All rights
                     reserved
                 </p>
             </div>

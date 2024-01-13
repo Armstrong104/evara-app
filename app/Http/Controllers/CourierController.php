@@ -29,8 +29,8 @@ class CourierController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required | unique:couriers,email',
-            'mobile' => 'required | unique:couriers,mobile'
+            'email' => 'required | unique:couriers',
+            'mobile' => 'required | unique:couriers'
         ]);
         Courier::newCourier($request);
         return back()->with('msg','Courier Added Successfully!');
